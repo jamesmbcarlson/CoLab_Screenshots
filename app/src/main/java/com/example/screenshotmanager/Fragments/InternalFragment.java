@@ -1,11 +1,14 @@
 package com.example.screenshotmanager.Fragments;
 
 import android.Manifest;
+import android.app.Dialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -40,6 +43,7 @@ public class InternalFragment extends Fragment implements OnFileSelectedListener
     private TextView tv_path_holder;
     File storage;
     String data;
+    String[] items = {"Details", "Rename", "Delete", "Share"};
 
     View view;
 
@@ -138,6 +142,54 @@ public class InternalFragment extends Fragment implements OnFileSelectedListener
 
     @Override
     public void onFileLongClicked(File file) {
+        final Dialog optionDialog = new Dialog(getContext());
+        optionDialog.setContentView(R.layout.option_dialog);
+        optionDialog.setTitle("Select Options");
+        ListView options = (ListView) optionDialog.findViewById(R.id.List);
+        CustomAdapter customAdapter = new CustomAdapter();
+        options.setAdapter(customAdapter);
+        optionDialog.show();
 
+    }
+
+    class CustomAdapter extends BaseAdapter{
+
+        @Override
+        public int getCount() {
+            return items.length;
+        }
+
+        @Override
+        public Object getItem(int i) {
+            return items[i];
+        }
+
+        @Override
+        public long getItemId(int i) {
+            return 0;
+        }
+
+        @Override
+        public View getView(int i, View view, ViewGroup viewGroup) {
+            View myView = getLayoutInflater().inflate(R.layout.option_layout, null);
+            TextView txtOptions = myView.findViewById(R.id.txt_option);
+            ImageView imgOptions = myView.findViewById(R.id.imgOption);
+            txtOptions.setText(items[i]);
+
+            if(items[i].equals("Details")){
+                imgOptions.setImageResource(R.drawable.ic_details);
+            }
+            else if(items[i].equals("Rename")){
+                imgOptions.setImageResource(R.drawable.ic_rename);
+            }
+            else if(items[i].equals("Delete")){
+                imgOptions.setImageResource(R.drawable.ic_delete);
+            }
+            else if(items[i].equals("Share")){
+                imgOptions.setImageResource(R.drawable.ic_share);
+            }
+
+            return myView;
+        }
     }
 }
