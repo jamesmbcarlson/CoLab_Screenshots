@@ -49,14 +49,17 @@ public class FileAdapter extends RecyclerView.Adapter<FileViewHolder> {
             holder.tv_size.setText(Formatter.formatShortFileSize(context, file.get(position).length()));
         }
 
-        if (file.get(position).getName().toLowerCase().endsWith(".jpeg") ||
+        if(file.get(position).isDirectory()) {
+            holder.imgFile.setImageResource((R.drawable.ic_folder_white));
+        }
+        else if (file.get(position).getName().toLowerCase().endsWith(".jpeg") ||
                 file.get(position).getName().toLowerCase().endsWith(".jpg") ||
                 file.get(position).getName().toLowerCase().endsWith(".png"))
         {
             holder.imgFile.setImageResource(R.drawable.ic_img);
         }
         else {
-            holder.imgFile.setImageResource((R.drawable.ic_folder_white));
+            holder.imgFile.setImageResource((R.drawable.ic_files_white));
         }
 
         holder.container.setOnClickListener(new View.OnClickListener() {

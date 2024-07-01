@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.screenshotmanager.FileAdapter;
+import com.example.screenshotmanager.FileOpener;
 import com.example.screenshotmanager.R;
 import com.example.screenshotmanager.OnFileSelectedListener;
 import com.karumi.dexter.Dexter;
@@ -24,6 +25,7 @@ import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -37,6 +39,7 @@ public class InternalFragment extends Fragment implements OnFileSelectedListener
     private ImageView img_back;
     private TextView tv_path_holder;
     File storage;
+    String data;
 
     View view;
 
@@ -51,8 +54,16 @@ public class InternalFragment extends Fragment implements OnFileSelectedListener
 
 
         String internal_storage = System.getenv("EXTERNAL_STORAGE");
-        String more_stuff = internal_storage + "/Pictures";
-        storage = new File(more_stuff);
+        String pictures_default = internal_storage + "/Pictures";
+        storage = new File(pictures_default);
+
+        try {
+            data = getArguments().getString("path");
+            File file = new File(data);
+            storage = file;
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
 
         tv_path_holder.setText(storage.getAbsolutePath());
         runtimePermission();
@@ -108,7 +119,21 @@ public class InternalFragment extends Fragment implements OnFileSelectedListener
 
     @Override
     public void onFileClicked(File file) {
+        if(file.isDirectory()){
+            Bundle bundle = new Bundle();
+            bundle.putString("path", file.getAbsolutePath());
+            InternalFragment internalFragment = new InternalFragment();
+            internalFragment.setArguments(bundle);
+            getFragmentManager().beginTransaction().replace(R.id.fragment_container, internalFragment).addToBackStack(null).commit();
 
+        }
+        else {
+            try {
+                FileOpener.openFile(getContext(), file);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 
     @Override
