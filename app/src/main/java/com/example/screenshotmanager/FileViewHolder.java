@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.screenshotmanager;
 
 import android.view.View;
 import android.widget.ImageView;

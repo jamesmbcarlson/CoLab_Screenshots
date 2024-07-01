@@ -1,4 +1,4 @@
-package com.example.myapplication.Fragments;
+package com.example.screenshotmanager.Fragments;
 
 import android.Manifest;
 import android.os.Bundle;
@@ -14,8 +14,9 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.myapplication.FileAdapter;
-import com.example.myapplication.R;
+import com.example.screenshotmanager.FileAdapter;
+import com.example.screenshotmanager.R;
+import com.example.screenshotmanager.OnFileSelectedListener;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.MultiplePermissionsReport;
 import com.karumi.dexter.PermissionToken;
@@ -24,10 +25,11 @@ import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 
-public class InternalFragment extends Fragment {
+public class InternalFragment extends Fragment implements OnFileSelectedListener {
 
     private RecyclerView recyclerView;
     private FileAdapter fileAdapter;
@@ -82,11 +84,7 @@ public class InternalFragment extends Fragment {
         ArrayList<File> arrayList = new ArrayList<>();
         File[] files = file.listFiles();
 
-        for (File single_file : files) {
-//            if(single_file.isDirectory() && !single_file.isHidden()){
-                arrayList.add(single_file);
-//            }
-        }
+        Collections.addAll(arrayList, files);
 //        for (File single_file : files){
 //            if (single_file.getName().toLowerCase().endsWith(".jpeg") ||
 //                    single_file.getName().toLowerCase().endsWith(".jpg") ||
@@ -104,7 +102,17 @@ public class InternalFragment extends Fragment {
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
         fileList = new ArrayList<>();
         fileList.addAll(findFiles(storage));
-        fileAdapter = new FileAdapter(fileList, getContext());
+        fileAdapter = new FileAdapter(getContext(), fileList, this);
         recyclerView.setAdapter(fileAdapter);
+    }
+
+    @Override
+    public void onFileClicked(File file) {
+
+    }
+
+    @Override
+    public void onFileLongClicked(File file) {
+
     }
 }

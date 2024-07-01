@@ -2,5 +2,13 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="testcolor">#673AB7</color>
+
+    <color name="app_primary">#FFB01B</color>
+    <color name="app_secondary">#45E58A</color>
+    <color name="app_tertiary">#3FABFF</color>
+    <color name="app_black">#1E1E1E</color>
+    <color name="app_gray">#79747E</color>
+    <color name="disabled_primary">#F6E0B8</color>
+    <color name="disabled_secondary">#D3F8DB</color>
+    <color name="disabled_tertiary">#CAE8FF</color>
 </resources>

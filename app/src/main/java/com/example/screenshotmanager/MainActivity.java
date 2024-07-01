@@ -1,7 +1,7 @@
-package com.example.myapplication;
+package com.example.screenshotmanager;
 
-import static com.example.myapplication.R.*;
-import com.example.myapplication.R;
+import static com.example.screenshotmanager.R.*;
+import com.example.screenshotmanager.R;
 
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -18,9 +18,9 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import com.example.myapplication.Fragments.CardFragment;
-import com.example.myapplication.Fragments.HomeFragment;
-import com.example.myapplication.Fragments.InternalFragment;
+import com.example.screenshotmanager.Fragments.CardFragment;
+import com.example.screenshotmanager.Fragments.HomeFragment;
+import com.example.screenshotmanager.Fragments.InternalFragment;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
