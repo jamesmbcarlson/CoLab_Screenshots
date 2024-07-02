@@ -62,11 +62,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (item.getItemId()== id.nav_internal) {
             InternalFragment internalFragment = new InternalFragment();
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, internalFragment).addToBackStack(null).commit();
-        } else if (item.getItemId()==id.nav_card) {
-            CardFragment cardFragment = new CardFragment();
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, cardFragment).addToBackStack(null).commit();
+//        } else if (item.getItemId()==id.nav_card) {
+//            CardFragment cardFragment = new CardFragment();
+//            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, cardFragment).addToBackStack(null).commit();
         } else if (item.getItemId()==id.nav_about) {
-            Toast.makeText(this, "About", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "This is a prototype for CoLab 30 Team 3's ScreenSort app!", Toast.LENGTH_LONG).show();
         }
 
 //        switch (item.getItemId()){

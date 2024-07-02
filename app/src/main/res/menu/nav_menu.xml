@@ -12,11 +12,11 @@
             android:icon="@drawable/ic_folder">
 
         </item>
-        <item android:id="@+id/nav_card"
-            android:title="SD Card"
-            android:icon="@drawable/ic_sdcard">
+<!--        <item android:id="@+id/nav_card"-->
+<!--            android:title="SD Card"-->
+<!--            android:icon="@drawable/ic_sdcard">-->
 
-        </item>
+<!--        </item>-->
     </group>
 
     <item android:title="More">

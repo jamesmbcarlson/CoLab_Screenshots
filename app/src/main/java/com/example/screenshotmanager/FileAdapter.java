@@ -1,5 +1,6 @@
 package com.example.screenshotmanager;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.text.format.Formatter;
 import android.view.LayoutInflater;
@@ -9,6 +10,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.example.screenshotmanager.OnFileSelectedListener;
 
 import java.io.File;
@@ -33,8 +36,6 @@ public class FileAdapter extends RecyclerView.Adapter<FileViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull FileViewHolder holder, int position) {
-        holder.tv_name.setText(file.get(position).getName());
-        holder.tv_name.setSelected(true);
         int items = 0;
         if(file.get(position).isDirectory()){
             File[] files = file.get(position).listFiles();
@@ -43,22 +44,40 @@ public class FileAdapter extends RecyclerView.Adapter<FileViewHolder> {
                     items += 1;
                 }
             }
-            holder.tv_size.setText(items + " Files");
+//            holder.tv_size.setText(items + " Files");
         }
-        else {
-            holder.tv_size.setText(Formatter.formatShortFileSize(context, file.get(position).length()));
-        }
+//        else {
+//            holder.tv_size.setText(Formatter.formatShortFileSize(context, file.get(position).length()));
+//        }
 
         if(file.get(position).isDirectory()) {
+//            if(position == 0 && file.get(position).getPath().contains(file.get(position).getName())){
+//                holder.imgFile.setImageResource((R.drawable.ic_folder_up));
+//            }
+//            else {
             holder.imgFile.setImageResource((R.drawable.ic_folder_white));
+//            }
+            holder.tv_name.setText(file.get(position).getName());
+            holder.tv_name.setSelected(true);
         }
         else if (file.get(position).getName().toLowerCase().endsWith(".jpeg") ||
                 file.get(position).getName().toLowerCase().endsWith(".jpg") ||
                 file.get(position).getName().toLowerCase().endsWith(".png"))
         {
-            holder.imgFile.setImageResource(R.drawable.ic_img);
+            holder.tv_name.setText("");
+            holder.tv_name.setSelected(false);
+
+            Glide.with(context)
+                    .load(file.get(position))
+                    .placeholder(R.drawable.ic_img)
+                    .error(R.drawable.ic_files_white)
+                    .transform(new CenterCrop())
+                    .into(holder.imgFile);
         }
         else {
+            holder.tv_name.setText(file.get(position).getName());
+            holder.tv_name.setSelected(true);
+
             holder.imgFile.setImageResource((R.drawable.ic_files_white));
         }
 
@@ -72,7 +91,7 @@ public class FileAdapter extends RecyclerView.Adapter<FileViewHolder> {
         holder.container.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                listener.onFileLongClicked(file.get(position));
+                listener.onFileLongClicked(file.get(position), position);
                 return true;
             }
         });
