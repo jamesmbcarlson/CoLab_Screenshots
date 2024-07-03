@@ -67,7 +67,7 @@ public class InternalFragment extends Fragment implements OnFileSelectedListener
         view = inflater.inflate(R.layout.fragment_internal, container, false);
 
         tv_path_holder = view.findViewById(R.id.tv_path_holder);
-        img_back = view.findViewById(R.id.img_back);
+//        img_back = view.findViewById(R.id.img_back);
 
         // Set initial starting point for images to view
         String starting_path = storage_root;

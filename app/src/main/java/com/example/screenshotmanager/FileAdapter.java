@@ -55,7 +55,7 @@ public class FileAdapter extends RecyclerView.Adapter<FileViewHolder> {
 //                holder.imgFile.setImageResource((R.drawable.ic_folder_up));
 //            }
 //            else {
-            holder.imgFile.setImageResource((R.drawable.ic_folder_white));
+            holder.imgFile.setImageResource((R.drawable.ic_folder));
 //            }
             holder.tv_name.setText(file.get(position).getName());
             holder.tv_name.setSelected(true);
