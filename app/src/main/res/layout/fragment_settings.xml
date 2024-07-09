@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="@dimen/app_padding"
+    >
+
+    <LinearLayout
+        android:id="@+id/settings_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+
+        >
+
+        <TextView
+            style="@style/Header1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="60dp"
+            android:text="@string/header_title_settings" />
+
+        <TextView
+            style="@style/Header2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/settings_menu_margin"
+            android:text="User Settings"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="onTextItemClick"/>
+
+        <TextView
+            style="@style/Header2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/settings_menu_margin"
+            android:text="Edit Photo Access"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="onTextItemClick"/>
+
+        <TextView
+            style="@style/Header2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/settings_menu_margin"
+            android:text="Notifications"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="onTextItemClick"/>
+
+        <TextView
+            style="@style/Header2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/settings_menu_margin"
+            android:text="Help"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="onTextItemClick"/>
+
+        <TextView
+            style="@style/Header2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/settings_menu_margin"
+            android:text="Privacy Policy"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="onTextItemClick"/>
+
+        <TextView
+            style="@style/Header2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/settings_menu_margin"
+            android:text="Contact Us"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="onTextItemClick"/>
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:src="@drawable/mort_1"
+            android:layout_gravity="center" />
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/logo1"
+            android:layout_gravity="center" />
+
+    </LinearLayout>
+
+</ScrollView>

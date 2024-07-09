@@ -1,16 +1,22 @@
 package com.example.screenshotmanager;
 
 import static com.example.screenshotmanager.R.*;
+
+import com.example.screenshotmanager.Fragments.AlbumFragment;
+import com.example.screenshotmanager.Fragments.SettingsFragment;
 import com.example.screenshotmanager.R;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.graphics.Insets;
 import androidx.core.view.GravityCompat;
@@ -30,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO); // disable dark mode... temporarily for testing purposes of course!
 //        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 //        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -59,14 +66,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if(item.getItemId()==id.nav_home) {
             HomeFragment homeFragment = new HomeFragment();
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, homeFragment).addToBackStack(null).commit();
-        } else if (item.getItemId()== id.nav_internal) {
-            InternalFragment internalFragment = new InternalFragment();
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, internalFragment).addToBackStack(null).commit();
-//        } else if (item.getItemId()==id.nav_card) {
-//            CardFragment cardFragment = new CardFragment();
-//            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, cardFragment).addToBackStack(null).commit();
-        } else if (item.getItemId()==id.nav_about) {
-            Toast.makeText(this, "This is a prototype for CoLab 30 Team 3's ScreenSort app!", Toast.LENGTH_LONG).show();
+        } else if (item.getItemId()== id.nav_roll) {
+            InternalFragment rollFragment = new InternalFragment();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, rollFragment).addToBackStack(null).commit();
+        } else if (item.getItemId()== id.nav_albums) {
+            AlbumFragment albumsFragment = new AlbumFragment();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, albumsFragment).addToBackStack(null).commit();
+        } else if (item.getItemId()== id.nav_settings) {
+            SettingsFragment settingsFragment = new SettingsFragment();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, settingsFragment).addToBackStack(null).commit();
         }
 
 //        switch (item.getItemId()){
@@ -99,5 +107,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             super.onBackPressed();
         }
 
+    }
+
+    public void onTextItemClick(View view) {
+        TextView textView = (TextView) view;
+        String text = textView.getText().toString();
+        Toast.makeText(this, "To-Be Implemented: " + text, Toast.LENGTH_SHORT).show();
     }
 }
