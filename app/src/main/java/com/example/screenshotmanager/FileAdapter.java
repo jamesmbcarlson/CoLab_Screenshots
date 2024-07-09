@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
+import com.example.screenshotmanager.Fragments.InternalFragment;
 import com.example.screenshotmanager.OnFileSelectedListener;
 
 import java.io.File;
@@ -21,11 +22,13 @@ public class FileAdapter extends RecyclerView.Adapter<FileViewHolder> {
     private final Context context;
     private final List<File> file;
     private final OnFileSelectedListener listener;
+    private final InternalFragment fragment;
 
-    public FileAdapter(Context context, List<File> file, OnFileSelectedListener listener) {
+    public FileAdapter(Context context, List<File> file, OnFileSelectedListener listener, InternalFragment fragment) {
         this.context = context;
         this.file = file;
         this.listener = listener;
+        this.fragment = fragment;
     }
 
     @NonNull
@@ -56,9 +59,11 @@ public class FileAdapter extends RecyclerView.Adapter<FileViewHolder> {
 //            }
 //            else {
             holder.imgFile.setImageResource((R.drawable.ic_folder));
+            holder.imgCheckbox.setVisibility(View.INVISIBLE);
 //            }
             holder.tv_name.setText(file.get(position).getName());
             holder.tv_name.setSelected(true);
+
         }
         else if (file.get(position).getName().toLowerCase().endsWith(".jpeg") ||
                 file.get(position).getName().toLowerCase().endsWith(".jpg") ||
@@ -84,8 +89,16 @@ public class FileAdapter extends RecyclerView.Adapter<FileViewHolder> {
         holder.container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                fragment.ToggleFileSelected(file.get(position));
+                if(fragment.GetFileIsSelected(file.get(position))){
+                    holder.imgCheckbox.setImageResource(R.drawable.ic_checkbox_checked);
+                }
+                else {
+                    holder.imgCheckbox.setImageResource(R.drawable.ic_checkbox);
+                }
                 listener.onFileClicked(file.get(position));
             }
+
         });
 
         holder.container.setOnLongClickListener(new View.OnLongClickListener() {

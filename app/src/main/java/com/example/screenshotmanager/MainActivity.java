@@ -29,6 +29,9 @@ import com.example.screenshotmanager.Fragments.HomeFragment;
 import com.example.screenshotmanager.Fragments.InternalFragment;
 import com.google.android.material.navigation.NavigationView;
 
+import java.io.File;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawerLayout;
@@ -114,4 +117,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         String text = textView.getText().toString();
         Toast.makeText(this, "To-Be Implemented: " + text, Toast.LENGTH_SHORT).show();
     }
+
+    public void addNewPhotos(List<File> files) {
+        Toast.makeText(this,  files.size() + " Images Processed", Toast.LENGTH_SHORT).show();
+    }
+
 }
