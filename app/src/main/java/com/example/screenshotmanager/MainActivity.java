@@ -27,13 +27,14 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.example.screenshotmanager.Fragments.CardFragment;
 import com.example.screenshotmanager.Fragments.HomeFragment;
 import com.example.screenshotmanager.Fragments.InternalFragment;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
 import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
 //    private DrawerLayout drawerLayout;
     private HashMap<String, Object> imageCollection = new HashMap<String, Object>();
@@ -54,15 +55,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-//        NavigationView navigationView = findViewById(R.id.bottomNavigationView);
-//        navigationView.setNavigationItemSelectedListener(this);
+        BottomNavigationView navigationView = findViewById(R.id.bottomNavigationView);
+        navigationView.setOnNavigationItemSelectedListener(this);
 
 //        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open_drawer, R.string.closer_drawer);
 //        drawerLayout.addDrawerListener(toggle);
 //        toggle.syncState();
 
         getSupportFragmentManager().beginTransaction().replace(id.fragment_container, new HomeFragment()).commit();
-//        navigationView.setCheckedItem(id.nav_home);
     }
 
     @Override

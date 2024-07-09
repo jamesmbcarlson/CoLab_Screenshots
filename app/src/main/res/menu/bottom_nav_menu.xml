@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item
-        android:title="Home"
-        android:icon="@drawable/baseline_home_24"
-        android:id="@+id/nav_home"/>
-    <item
-        android:title="Roll"
-        android:icon="@drawable/baseline_photo_24"
-        android:id="@+id/nav_roll"/>
-    <item
-        android:title="Albums"
-        android:icon="@drawable/baseline_folder_copy_24"
-        android:id="@+id/nav_albums"/>
-    <item
-        android:title="Settings"
-        android:icon="@drawable/baseline_settings_24"
-        android:id="@+id/nav_settings"/>
-
+    <group android:checkableBehavior="single">
+        <item
+            android:title="Home"
+            android:icon="@drawable/baseline_home_24"
+            android:id="@+id/nav_home"/>
+        <item
+            android:title="Roll"
+            android:icon="@drawable/baseline_photo_24"
+            android:id="@+id/nav_roll"/>
+        <item
+            android:title="Albums"
+            android:icon="@drawable/baseline_folder_copy_24"
+            android:id="@+id/nav_albums"/>
+        <item
+            android:title="Settings"
+            android:icon="@drawable/baseline_settings_24"
+            android:id="@+id/nav_settings"/>
+    </group>
 </menu>
