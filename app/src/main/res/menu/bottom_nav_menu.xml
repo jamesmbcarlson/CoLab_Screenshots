@@ -4,18 +4,18 @@
     <item
         android:title="Home"
         android:icon="@drawable/baseline_home_24"
-        android:id="@+id/home"/>
+        android:id="@+id/nav_home"/>
     <item
         android:title="Roll"
         android:icon="@drawable/baseline_photo_24"
-        android:id="@+id/roll"/>
+        android:id="@+id/nav_roll"/>
     <item
         android:title="Albums"
         android:icon="@drawable/baseline_folder_copy_24"
-        android:id="@+id/albums"/>
+        android:id="@+id/nav_albums"/>
     <item
         android:title="Settings"
         android:icon="@drawable/baseline_settings_24"
-        android:id="@+id/setting"/>
+        android:id="@+id/nav_settings"/>
 
 </menu>
