@@ -30,11 +30,13 @@ import com.example.screenshotmanager.Fragments.InternalFragment;
 import com.google.android.material.navigation.NavigationView;
 
 import java.io.File;
+import java.util.HashMap;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawerLayout;
+    private HashMap<String, Object> imageCollection = new HashMap<String, Object>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,8 +120,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Toast.makeText(this, "To-Be Implemented: " + text, Toast.LENGTH_SHORT).show();
     }
 
+    private void createAppStorage() {
+
+    }
+
     public void addNewPhotos(List<File> files) {
+
+
         Toast.makeText(this,  files.size() + " Images Processed", Toast.LENGTH_SHORT).show();
+
+
     }
 
 }
