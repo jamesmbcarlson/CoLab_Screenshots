@@ -4,28 +4,33 @@
     <group android:checkableBehavior="single">
         <item android:id="@+id/nav_home"
             android:title="@string/title_home"
-            android:icon="@drawable/ic_castle">
+            android:icon="@drawable/ic_home">
 
         </item>
-        <item android:id="@+id/nav_internal"
-            android:title="Internal Storage"
-            android:icon="@drawable/ic_folder">
+        <item android:id="@+id/nav_roll"
+            android:title="Roll"
+            android:icon="@drawable/ic_roll">
 
         </item>
-        <item android:id="@+id/nav_card"
-            android:title="SD Card"
-            android:icon="@drawable/ic_sdcard">
+        <item android:id="@+id/nav_albums"
+            android:title="Albums"
+            android:icon="@drawable/ic_albums">
+
+        </item>
+        <item android:id="@+id/nav_settings"
+            android:title="Settings"
+            android:icon="@drawable/ic_settings">
 
         </item>
     </group>
 
-    <item android:title="More">
-        <menu>
-            <item android:id="@+id/nav_about"
-                android:title="About"
-                android:icon="@drawable/baseline_info_24">
+<!--    <item android:title="More">-->
+<!--        <menu>-->
+<!--            <item android:id="@+id/nav_about"-->
+<!--                android:title="About"-->
+<!--                android:icon="@drawable/baseline_info_24">-->
 
-            </item>
-        </menu>
-    </item>
+<!--            </item>-->
+<!--        </menu>-->
+<!--    </item>-->
 </menu>

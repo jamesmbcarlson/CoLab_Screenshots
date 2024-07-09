@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.screenshotmanager;
 
 import org.junit.Test;
 

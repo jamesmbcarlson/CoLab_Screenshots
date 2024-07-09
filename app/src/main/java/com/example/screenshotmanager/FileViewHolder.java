@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.screenshotmanager;
 
 import android.view.View;
 import android.widget.ImageView;
@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public class FileViewHolder extends RecyclerView.ViewHolder {
     public TextView tv_name, tv_size;
     public CardView container;
-    public ImageView imgFile;
+    public ImageView imgFile, imgCheckbox;
     public FileViewHolder(@NonNull View itemView) {
         super(itemView);
 
@@ -19,5 +19,6 @@ public class FileViewHolder extends RecyclerView.ViewHolder {
         tv_size = itemView.findViewById(R.id.tv_file_size);
         container = itemView.findViewById(R.id.container);
         imgFile = itemView.findViewById(R.id.img_fileType);
+        imgCheckbox = itemView.findViewById(R.id.thumbnail_checkbox);
     }
 }

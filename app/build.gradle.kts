@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.myapplication"
+    namespace = "com.example.screenshotmanager"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.myapplication"
+        applicationId = "com.example.screenshotmanager"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -42,4 +42,6 @@ dependencies {
     androidTestImplementation(libs.espresso.core)
 
     implementation(libs.dexter)
+    implementation(libs.glide)
+
 }

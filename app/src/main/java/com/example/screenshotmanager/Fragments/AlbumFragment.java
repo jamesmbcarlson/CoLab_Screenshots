@@ -12,13 +12,13 @@ import androidx.fragment.app.Fragment;
 import com.example.screenshotmanager.R;
 
 
-public class HomeFragment extends Fragment {
+public class AlbumFragment extends Fragment {
     View view;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_home, container, false);
+        view = inflater.inflate(R.layout.fragment_albums, container, false);
 
         return view;
 

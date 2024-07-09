@@ -1,5 +1,6 @@
 [versions]
 agp = "8.5.0"
+glideVersion = "4.16.0"
 junit = "4.13.2"
 junitVersion = "1.2.0"
 espressoCore = "3.6.0"
@@ -10,6 +11,7 @@ constraintlayout = "2.1.4"
 dexter = "6.2.3"
 
 [libraries]
+glide = { module = "com.github.bumptech.glide:glide", version.ref = "glideVersion" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }

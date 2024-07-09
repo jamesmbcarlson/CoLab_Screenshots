@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Header1">
+        <item name="android:fontFamily">@font/splinesans_bold</item>
+        <item name="fontFamily">@font/splinesans_bold</item>
+        <item name="android:textSize">27sp</item>
+    </style>
+    <style name="Header2">
+        <item name="android:fontFamily">@font/splinesans_bold</item>
+        <item name="fontFamily">@font/splinesans_bold</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+    <style name="Body1">
+        <item name="android:fontFamily">@font/splinesans_regular</item>
+        <item name="fontFamily">@font/splinesans_regular</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+    <style name="Body2">
+        <item name="android:fontFamily">@font/splinesans_regular</item>
+        <item name="fontFamily">@font/splinesans_regular</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="Body3">
+        <item name="android:fontFamily">@font/splinesans_regular</item>
+        <item name="fontFamily">@font/splinesans_regular</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+</resources>
