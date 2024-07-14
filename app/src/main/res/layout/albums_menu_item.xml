@@ -3,7 +3,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/container">
+    android:id="@+id/album_container">
 
     <LinearLayout
         android:orientation="vertical"
@@ -22,8 +22,7 @@
                 android:id="@+id/album_menu_album_preview"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@drawable/ic_add_yellow"
-                app:tint="@color/app_secondary"
+                android:src="@drawable/ic_add_green"
                 android:layout_centerInParent="true"
                 >
 

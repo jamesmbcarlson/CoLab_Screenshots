@@ -31,13 +31,14 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
 //    private DrawerLayout drawerLayout;
-    private HashMap<String, Object> imageCollection = new HashMap<String, Object>();
+    private List<Album> albumCollection = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,10 +127,16 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
     public void addNewPhotos(List<File> files) {
 
-
+        // DEBUG
         Toast.makeText(this,  files.size() + " Images Processed", Toast.LENGTH_SHORT).show();
+        Album targetAlbum = new Album("Test");
+        albumCollection.add(targetAlbum);
 
+        targetAlbum.AddToAlbum(files);
+    }
 
+    public List<Album> getAlbumCollection() {
+        return albumCollection;
     }
 
 }

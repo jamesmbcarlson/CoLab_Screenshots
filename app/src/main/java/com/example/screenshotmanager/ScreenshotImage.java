@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.List;
 
 public class ScreenshotImage {
+    private final File file;
     private Path path;
     private List<String> categories;
     private boolean seen;
@@ -16,6 +17,7 @@ public class ScreenshotImage {
     private Date lastViewed;
 
     public ScreenshotImage(File file) {
+        this.file = file;
         path = Paths.get(file.getAbsolutePath());
 
         // set lastViewed to current date and time
@@ -28,4 +30,8 @@ public class ScreenshotImage {
 
 
     }
+
+    public Path GetPath() { return path; }
+
+    public File GetFile() { return file; }
 }
