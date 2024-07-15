@@ -71,14 +71,7 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumViewHolder> {
         holder.container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                fragment.ToggleFileSelected(file.get(position));
-//                if(fragment.GetFileIsSelected(file.get(position))){
-//                    holder.imgCheckbox.setImageResource(R.drawable.ic_checkbox_checked);
-//                }
-//                else {
-//                    holder.imgCheckbox.setImageResource(R.drawable.ic_checkbox);
-//                }
-//                listener.onFileClicked(albums.get(position));
+                listener.OnAlbumClicked(albums.get(position));
             }
 
         });

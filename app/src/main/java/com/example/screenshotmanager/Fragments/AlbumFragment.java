@@ -8,6 +8,7 @@ import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -47,6 +48,8 @@ public class AlbumFragment extends Fragment implements OnAlbumSelectedListener {
 
         displayAlbums();
 
+
+
         return view;
 
     }
@@ -63,6 +66,10 @@ public class AlbumFragment extends Fragment implements OnAlbumSelectedListener {
 
     @Override
     public void OnAlbumClicked(Album album) {
+        AlbumViewFragment albumViewFragment = AlbumViewFragment.newInstance(album);
 
+        requireActivity().getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, albumViewFragment)
+                .commit();
     }
 }

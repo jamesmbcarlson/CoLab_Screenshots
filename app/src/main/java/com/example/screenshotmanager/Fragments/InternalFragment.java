@@ -365,15 +365,26 @@ public class InternalFragment extends Fragment implements OnFileSelectedListener
     }
 
     public void ToggleFileSelected(File file){
-        if(GetFileIsSelected(file)){
-            selectedFiles.remove(file);
+        try {
+            if(GetFileIsSelected(file)){
+                selectedFiles.remove(file);
+            }
+            else {
+                selectedFiles.add(file);
+            }
         }
-        else {
-            selectedFiles.add(file);
+        catch (Exception e) {
+            // TEMP
         }
+
     }
 
     public boolean GetFileIsSelected(File file){
-        return selectedFiles.contains(file);
+        try {
+            return selectedFiles.contains(file);
+        }
+        catch (Exception e) {
+            return false;
+        }
     }
 }

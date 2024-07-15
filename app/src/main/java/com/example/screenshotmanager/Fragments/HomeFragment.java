@@ -63,6 +63,10 @@ public class HomeFragment extends Fragment implements OnAlbumSelectedListener {
 
     @Override
     public void OnAlbumClicked(Album album) {
+        AlbumViewFragment albumViewFragment = AlbumViewFragment.newInstance(album);
 
+        requireActivity().getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, albumViewFragment)
+                .commit();
     }
 }
