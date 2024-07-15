@@ -31,7 +31,5 @@ public class ScreenshotImage {
 
     }
 
-    public Path GetPath() { return path; }
-
     public File GetFile() { return file; }
 }

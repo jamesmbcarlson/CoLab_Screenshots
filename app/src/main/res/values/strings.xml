@@ -13,5 +13,8 @@
     <string name="header_title_remember">Remember These?</string>
     <string name="header_title_reminder">Next Reminder</string>
     <string name="header_title_recent">Recent Albums</string>
+    <string name="album_size_empty">Empty</string>
+    <string name="btn_continue">Continue</string>
+    <string name="btn_cancel">Cancel</string>
 
 </resources>

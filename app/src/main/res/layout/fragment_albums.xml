@@ -25,6 +25,7 @@
             android:text="@string/header_title_albums" />
 
         <ImageView
+            android:id="@+id/btn_album_add"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_alignParentEnd="true"

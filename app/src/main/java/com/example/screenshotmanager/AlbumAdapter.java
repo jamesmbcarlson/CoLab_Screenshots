@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -23,9 +24,9 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumViewHolder> {
     private final Context context;
     private final List<Album> albums;
     private final OnAlbumSelectedListener listener;
-    private final AlbumFragment fragment;
+    private final Fragment fragment;
 
-    public AlbumAdapter(Context context, List<Album> albums, OnAlbumSelectedListener listener, AlbumFragment fragment) {
+    public AlbumAdapter(Context context, List<Album> albums, OnAlbumSelectedListener listener, Fragment fragment) {
         this.context = context;
         this.albums = albums;
         this.listener = listener;
@@ -43,11 +44,10 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumViewHolder> {
 
         holder.tv_name.setText(albums.get(position).GetName());
         holder.tv_name.setSelected(false);
-        holder.tv_size.setText(String.valueOf(albums.get(position).GetCount()));
-        holder.tv_size.setSelected(false);
-
 
         if(albums.get(position).GetCount() > 0) {
+
+            holder.tv_size.setText(String.valueOf(albums.get(position).GetCount()));
 
             holder.imgThumbnail.setLayoutParams(new RelativeLayout.LayoutParams(
                     RelativeLayout.LayoutParams.MATCH_PARENT,
@@ -62,6 +62,11 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumViewHolder> {
                     .transform(new CenterCrop())
                     .into(holder.imgThumbnail);
         }
+        else {
+            holder.tv_size.setText(R.string.album_size_empty);
+        }
+
+        holder.tv_size.setSelected(false);
 
         holder.container.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -2,7 +2,9 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="12dp"
     android:id="@+id/album_container">
 
     <LinearLayout
@@ -11,6 +13,7 @@
         android:gravity="center_vertical"
         android:layout_width="match_parent"
         android:layout_height="224dp"
+        android:background="@android:color/transparent"
         >
 
         <RelativeLayout

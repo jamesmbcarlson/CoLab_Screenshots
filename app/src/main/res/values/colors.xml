@@ -11,4 +11,6 @@
     <color name="disabled_primary">#F6E0B8</color>
     <color name="disabled_secondary">#D3F8DB</color>
     <color name="disabled_tertiary">#CAE8FF</color>
+
+    <color name="text_field">#FFF6E5</color>
 </resources>

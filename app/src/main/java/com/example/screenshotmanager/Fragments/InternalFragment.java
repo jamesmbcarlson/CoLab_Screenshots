@@ -86,7 +86,10 @@ public class InternalFragment extends Fragment implements OnFileSelectedListener
         importButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mainActivity.addNewPhotos(selectedFiles);
+
+                mainActivity.setFilesToAdd(selectedFiles);
+                mainActivity.AddNewAlbum();
+
             }
         });
 

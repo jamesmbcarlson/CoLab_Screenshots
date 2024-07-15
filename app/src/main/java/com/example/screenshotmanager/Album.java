@@ -19,7 +19,6 @@ public class Album {
     public void AddToAlbum(List<File> files) {
         for (File f: files) {
             images.add(new ScreenshotImage(f));
-            System.out.println(f.getName() + " logged"); // DEBUG
         }
         lastModified = new Date();
 
