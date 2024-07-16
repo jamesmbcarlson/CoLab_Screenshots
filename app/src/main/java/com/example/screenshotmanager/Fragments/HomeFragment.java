@@ -67,6 +67,7 @@ public class HomeFragment extends Fragment implements OnAlbumSelectedListener {
 
         requireActivity().getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragment_container, albumViewFragment)
+                .addToBackStack(null)
                 .commit();
     }
 }

@@ -7,6 +7,8 @@ import com.example.screenshotmanager.Fragments.SettingsFragment;
 import com.example.screenshotmanager.R;
 
 import android.app.Dialog;
+import android.app.Fragment;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -18,6 +20,7 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -162,6 +165,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         });
 
         continueButton.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View view) {
                 // DEBUG
@@ -178,7 +182,15 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
                     targetAlbum.AddToAlbum(filesToAdd);
                     setFilesToAdd(new ArrayList<>());
+
+
+                    InternalFragment internalFragment = (InternalFragment) getSupportFragmentManager().findFragmentById(id.fragment_internal);
+                    if(internalFragment != null) {
+                        internalFragment.ResetSelectedFiles();
+                    }
+
                     newAlbumDialog.dismiss();
+
                 }
                 else {
                     Toast.makeText(getApplicationContext(), "Album Title Cannot be Blank", Toast.LENGTH_SHORT).show();

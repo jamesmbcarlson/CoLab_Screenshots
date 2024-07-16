@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
@@ -70,6 +71,7 @@ public class AlbumFragment extends Fragment implements OnAlbumSelectedListener {
 
         requireActivity().getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragment_container, albumViewFragment)
+                .addToBackStack(null)
                 .commit();
     }
 }

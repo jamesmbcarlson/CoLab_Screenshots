@@ -90,6 +90,7 @@ public class InternalFragment extends Fragment implements OnFileSelectedListener
                 mainActivity.setFilesToAdd(selectedFiles);
                 mainActivity.AddNewAlbum();
 
+
             }
         });
 
@@ -174,6 +175,7 @@ public class InternalFragment extends Fragment implements OnFileSelectedListener
         fileList.addAll(findFiles(storage));
         fileAdapter = new FileAdapter(getContext(), fileList, this, this);
         recyclerView.setAdapter(fileAdapter);
+
     }
 
     @Override
@@ -386,5 +388,12 @@ public class InternalFragment extends Fragment implements OnFileSelectedListener
         catch (Exception e) {
             return false;
         }
+    }
+
+    public void ResetSelectedFiles() {
+        selectedFiles.clear();
+        displayFiles();
+        recyclerView = view.findViewById(R.id.recycler_internal);
+        recyclerView.refreshDrawableState();
     }
 }
