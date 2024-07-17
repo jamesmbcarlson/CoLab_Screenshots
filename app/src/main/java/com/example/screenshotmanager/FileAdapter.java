@@ -39,6 +39,17 @@ public class FileAdapter extends RecyclerView.Adapter<FileViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull FileViewHolder holder, int position) {
+
+        // Reset view state
+        if(fragment.GetFileIsSelected(file.get(position))){
+            holder.imgCheckbox.setImageResource(R.drawable.ic_checkbox_checked);
+            holder.imgCheckbox.setVisibility(View.VISIBLE);
+        }
+        else {
+            holder.imgCheckbox.setImageResource(R.drawable.ic_checkbox);
+            holder.imgCheckbox.setVisibility(View.INVISIBLE);
+        }
+
         int items = 0;
         if(file.get(position).isDirectory()){
             File[] files = file.get(position).listFiles();
@@ -92,9 +103,11 @@ public class FileAdapter extends RecyclerView.Adapter<FileViewHolder> {
                 fragment.ToggleFileSelected(file.get(position));
                 if(fragment.GetFileIsSelected(file.get(position))){
                     holder.imgCheckbox.setImageResource(R.drawable.ic_checkbox_checked);
+                    holder.imgCheckbox.setVisibility(View.VISIBLE);
                 }
                 else {
                     holder.imgCheckbox.setImageResource(R.drawable.ic_checkbox);
+                    holder.imgCheckbox.setVisibility(View.INVISIBLE);
                 }
                 listener.onFileClicked(file.get(position));
             }
