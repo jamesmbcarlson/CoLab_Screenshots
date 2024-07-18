@@ -23,6 +23,7 @@ import com.example.screenshotmanager.R;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -61,7 +62,9 @@ public class AlbumFragment extends Fragment implements OnAlbumSelectedListener {
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
 
         albumsList = mainActivity.getAlbumCollection();
-        albumAdapter = new AlbumAdapter(getContext(), albumsList, this, this);
+        List<Album> displayList = new ArrayList<>(albumsList.subList(0, albumsList.size()));
+        Collections.reverse(displayList);
+        albumAdapter = new AlbumAdapter(getContext(), displayList, this, this);
         recyclerView.setAdapter(albumAdapter);
     }
 

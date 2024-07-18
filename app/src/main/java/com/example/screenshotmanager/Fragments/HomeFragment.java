@@ -18,6 +18,8 @@ import com.example.screenshotmanager.MainActivity;
 import com.example.screenshotmanager.OnAlbumSelectedListener;
 import com.example.screenshotmanager.R;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -57,7 +59,9 @@ public class HomeFragment extends Fragment implements OnAlbumSelectedListener {
         recentView.setLayoutManager(new GridLayoutManager(getContext(), 2));
 
         albumsList = mainActivity.getAlbumCollection();
-        albumAdapter = new AlbumAdapter(getContext(), albumsList, this, this);
+        List<Album> displayList = new ArrayList<>(albumsList.subList(0, albumsList.size()));
+        Collections.reverse(displayList);
+        albumAdapter = new AlbumAdapter(getContext(), displayList, this, this);
         recentView.setAdapter(albumAdapter);
     }
 
