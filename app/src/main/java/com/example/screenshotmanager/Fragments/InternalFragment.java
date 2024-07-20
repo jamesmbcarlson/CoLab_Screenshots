@@ -29,6 +29,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.screenshotmanager.Album;
 import com.example.screenshotmanager.FileAdapter;
 import com.example.screenshotmanager.FileOpener;
 import com.example.screenshotmanager.FileViewHolder;
@@ -173,7 +174,9 @@ public class InternalFragment extends Fragment implements OnFileSelectedListener
         }
         
         fileList.addAll(findFiles(storage));
-        fileAdapter = new FileAdapter(getContext(), fileList, this, this);
+        List<File> displayList = new ArrayList<>(fileList.subList(0, fileList.size()));
+        Collections.reverse(displayList);
+        fileAdapter = new FileAdapter(getContext(), displayList, this, this);
         recyclerView.setAdapter(fileAdapter);
 
     }
